@@ -31,7 +31,7 @@ jobs:
           git clone -b release-1.23 https://github.com/kubernetes/website.git
           cd website
           git submodule update --init --recursive --depth 1
-          echo "HUGO_VERSION=$(grep ^HUGO_VERSION netlify.toml | tail -n 1 | cut -d '=' -f 2 | tr -d ' \"\n')" >> $GITHUB_ENV
+          echo "HUGO_VERSION=$(grep ^HUGO_VERSION netlify.toml | tail -n 1 | cut -d '=' -f 2 | tr -d ' \"\n')"
       - name: Install Hugo CLI
         run: |
           wget -O ${{ runner.temp }}/hugo.deb https://github.com/gohugoio/hugo/releases/download/v${env.HUGO_VERSION}/hugo_extended_${env.HUGO_VERSION}_linux-amd64.deb \
