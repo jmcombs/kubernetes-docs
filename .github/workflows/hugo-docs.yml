@@ -52,7 +52,8 @@ jobs:
       - name: Build with Hugo
         run: |
           echo $(pwd)
-          website/make all        
+          cd /home/runner/work/kubernetes-docs/kubernetes-docs/website
+          make all        
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
