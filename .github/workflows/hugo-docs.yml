@@ -50,8 +50,7 @@ jobs:
         run: "[[ -f package-lock.json || -f npm-shrinkwrap.json ]] && npm ci || true"
       - name: Build with Hugo
         run: |
-          cd website
-          make all        
+          website/make all        
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
