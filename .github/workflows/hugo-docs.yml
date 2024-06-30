@@ -42,7 +42,7 @@ jobs:
         run: |
           cd website
           npm ci
-          make all
+          make build
       - name: Setup Pages
         id: pages
         uses: actions/configure-pages@v5
