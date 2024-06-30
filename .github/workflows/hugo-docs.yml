@@ -31,7 +31,6 @@ jobs:
           git clone -b release-1.23 https://github.com/kubernetes/website.git
           cd website
           git submodule update --init --recursive --depth 1
-          echo $(pwd)
       - name: Set HUGO_VERSION environment variable
         run: echo "HUGO_VERSION=$(grep ^HUGO_VERSION website/netlify.toml | tail -n 1 | cut -d '=' -f 2 | tr -d ' \"\n')" >> "$GITHUB_ENV"
       - name: Install Hugo CLI
@@ -57,7 +56,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: website
+          path: website/public
 
   # Deployment job
   deploy:
