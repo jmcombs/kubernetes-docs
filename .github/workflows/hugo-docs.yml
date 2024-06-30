@@ -43,18 +43,11 @@ jobs:
           cd website
           npm ci
           make all
-      - name: Checkout
-        uses: actions/checkout@v4
-        with:
-          submodules: recursive
-          fetch-depth: 0
       - name: Setup Pages
         id: pages
         uses: actions/configure-pages@v5
       - name: Install Node.js dependencies
         run: "[[ -f package-lock.json || -f npm-shrinkwrap.json ]] && npm ci || true"
-      - name: Print absolute path of public directory
-        run: realpath website/public
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
